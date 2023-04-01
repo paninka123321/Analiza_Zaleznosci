@@ -42,8 +42,8 @@ plot(m2, 1)
 residuals(m2)
 r1 <- rstandard(m2) #studentyzowane
 r2 <- rstudent(m2) #studentyzowane modyfikowane
-r2[abs(r2)>2] #when |r2| is larger then 2 we could say that this observation is an outlier
-wh <- which(abs(r2)>2)
+r1[abs(r1)>2] #when |r1| is larger then 2 we could say that this observation is an outlier
+wh <- which(abs(r1)>2)
 # we build new linear model which ignore observations from wh set
 m3 <- lm(y~log(x), data = df1, subset = -wh)
 summary(m3)$coef
