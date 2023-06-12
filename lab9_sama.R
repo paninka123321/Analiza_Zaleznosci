@@ -60,6 +60,12 @@ Meat_train_scaled <- scale(Meat_train[,-101])
 Meat_test_scaled <- scale(Meat_test[,-101])
 means<-attr(Meat_train_scaled,"scaled:center")
 stds<-attr(Meat_train_scaled,"scaled:scale")
+#poprawione, bo średnie z traina:
+scaled<-scale(Meat_train[,-101])
+means<-attr(scaled,"scaled:center")
+stds<-attr(scaled,"scaled:scale")
+Meat_train_std<-as.data.frame(scaled)
+Meat_test_std<-scale(Meat_test[,-101],center = means, scale = stds)
 
 # d) skladowe główne
 Meat_train_std <- as.data.frame(Meat_train_scaled)
